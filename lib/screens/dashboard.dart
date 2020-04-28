@@ -1,4 +1,5 @@
-import 'package:bytebank2/screens/contact_list.dart';
+import 'package:bytebank3/screens/contact_list.dart';
+import 'package:bytebank3/screens/transactions_list.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 
@@ -29,14 +30,8 @@ class Dashboard extends StatelessWidget {
                   Icons.monetization_on,
                   onClick: () {
                     _showTransferList(context);
-                  },
-                ),
-                _FeaturedItem(
-                  'Transfers feed',
-                  Icons.description,
-                  onClick: () {
                     Flushbar(
-                      message: "Transfers Feed",
+                      message: "Transfers",
                       duration: Duration(seconds: 3),
                       backgroundColor: Colors.red,
                       icon: Icon(Icons.warning),
@@ -47,10 +42,11 @@ class Dashboard extends StatelessWidget {
                   'Transfers feed',
                   Icons.description,
                   onClick: () {
+                    _showTransactionsList(context);
                     Flushbar(
                       message: "Transfers Feed",
                       duration: Duration(seconds: 3),
-                      backgroundColor: Colors.red,
+                      backgroundColor: Colors.green,
                       icon: Icon(Icons.warning),
                     )..show(context);
                   },
@@ -82,7 +78,7 @@ class _FeaturedItem extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(8.0),
             height: 100,
-            width: MediaQuery.of(context).size.width * 0.5,
+            width: MediaQuery.of(context).size.width * 0.3,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,6 +113,19 @@ void _showTransferList(context) {
   Navigator.of(context).push(
     MaterialPageRoute(
       builder: (context) => ContactList(),
+    ),
+  );
+}
+
+void _showTransactionsList(context) {
+//  Flushbar(
+//    message: "Transfers",
+//    duration: Duration(seconds: 3),
+//    backgroundColor: Colors.green,
+//  )..show(context);
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) => TransactionsList(),
     ),
   );
 }

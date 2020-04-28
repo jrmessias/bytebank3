@@ -1,9 +1,14 @@
-import 'package:bytebank2/screens/splash.dart';
+import 'package:bytebank3/screens/splash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() => (runApp(ByteBankApp()));
+import 'http/webclient.dart';
+
+void main() {
+  runApp(ByteBankApp());
+  findAll();
+}
 
 class ByteBankApp extends StatelessWidget {
   // This widget is the root of your application.
